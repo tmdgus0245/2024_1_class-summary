@@ -1,1 +1,80 @@
+알고리즘
+정의: 알고리즘은 명령어들의 유한 집합으로, 그 명령어들이 다음(요구사항)을 따를 경우 특정한 작업을 수행한다.
+**요구사항:
+• Input(입력) : 외부에서 공급되는 0개 이상의 수량
+• Output(출력) : 1개 이상의 수량이 생산됨
+• Definiteness(명확성): 명확하고 명확한 지침 (잘 모르겠음;;)
+• Finiteness(유한성) : 유한 단계 후 종료 (끝이 있어야 됨)
+• Effectiveness(유효성): 교육을 수행할 수 있을 정도로 기본적인 수준 (ex. 3을 0으로 나눈다.)**
 
+순환 알고리즘(내 생각엔 재귀함수랑 비슷함)
+재귀: 일반적인 단순화 방법은 문제를 같은 유형의 하위 문제로 나누는 것이다
+E.g.: n!= n x (n-1) 
+ex. Power_of_2 (natural number k)
+Input: k, a natural number
+Output: k-th power of 2
+Algoritm (recursive):
+  if k=0, then return 1;
+  else return 2 * Power_of_2(k-1)
+팩토리얼, 피보나치 등등
+
+Abstract Data Type(ADT[설명서]) 추상 데이터 타입
+ADT가 설명서인데
+funtion 중에 예를 들어 '+'라는 걸 설명한다면.
+arguments type은 'integer' 정수에 대해 다루고,
+result type은 똑같이 'integer' 정수,
+what the function does는 'integer + integer = integer' 라는일을 한다
+
+우리가 프로그램을 판단하는 기준
+1.프로그래밍을 잘했는지
+• Does the program meet the original specifications of the task?(사양충족)
+• Does it work correctly?(잘 작동?)
+• Does the program contain documentation that shows how to use it and how it works?(사용방법과 작동방식이 적힌 문서가 있나요?)
+• Does the program effectively use functions to create logical units?(논리적 단위를 만들기 위해 함수를 효과적으로 사용하는가?[모듈화])
+• Is the program’s code readable? (프로그램 코드가 읽을만 한가)
+**2. 성능이 어떤지
+• Does the program efficiently use primary and secondary storage?(1차,2차 저장소를 효육적으로 사용했나?)
+• Is the program’s running time acceptable for the task?(실행 시간은 적합한가?)**
+성능 평가
+**• Performance analysis(machine independent) • 공간 및 시간 복잡성**
+• performance measurement(machine dependent) • 비효율적인 코드 세그먼트를 식별하는 데 사용됩니다
+
+공간 복잡도
+S(P) = c + Sp(I)
+Fixed space requirements (c) 고정 공간 요구
+Independent of the number and size of the inputs and outputs
+입력 및 출력의 수와 크기에 관계없이 독립적임
+Variable space requirements (Sp(I)) 가변 공간 요구
+Depend on the particular instance I of the problem being solved
+문제가 해결되는 특정 인스턴스 I에 따라 달라짐.
+일반적으로 인스턴스 I의 일부 특성의 함수로 주어짐
+• I과 관련된 입력 및 출력의 수, 크기 및 값
+• ex) n개의 숫자를 포함하는 배열 -> n은 인스턴스 특성
+• 재귀 함수
+• 재귀적 스택 공간, 파라미터, 로컬 변수, 반환 주소
+float sum (float list[](여기서 주소값을 매개변수로 받으므로 n의 값에 따라 가변 공간 요구되는 것이 아님), int n) {
+float tempsum=0; int i;
+for (i=0;i<n;i++) { tempsum+= list[i]; }
+return tempsum;
+}
+
+시간 복잡도
+T(P) = c(compile time 고정값) + Tp(I)(run time 실행시간)
+≈run time
+≈number of the operations(얘로 시간 계산(program step))
+
+Program Step
+**float sum(float list[ ], int n)
+{
+float tempsum = 0;
+count++ ; /* for assignment */
+int i;
+for (i = 0; i < n; i++)
+{
+count++ ; /*for the for loop */
+tempsum += list[i]; count++; /* for assignment */
+}
+count++ ; /* last execution of for */
+count++ ; /* for return */
+return tempsum;
+}(n만큼 for문을 돌리므로 2n + 3steps)**
