@@ -1,3 +1,5 @@
+ch01&02
+
 C
 
 C는 아스키코드를 사용, Java는 유니코드 사용.
@@ -31,3 +33,13 @@ S/W가 H/W를 바라보는 관점(view)를 Architecture이라고 함.
 Java프로그램을 실행시키면 너무 느려서 Java Compiler를 거쳐 가상 기계어(Bytecode)로 바꾸고 Java Interpreter를 거쳐 결과를 도출해 냄.
 
 대부분 User program ->JVM(Java Virtual Machine) 방향으로 실행되지만 GUI와 같은 Event가 발생시 역방향으로 실행되기도 한다. 이런 방식을 Event driven 방식 도는 call back function이라고도 한다.
+------------------------------------------------
+ch03_part1
+
+데이터 타입
+
+Primitive types: 메모리에 값을 직접 넣는 경우 ex)int,double,char
+
+Reference types: Reference만 가능하고 이 안에 있는 값을 더하거나 빼거나 연산하지 못함. ex)Class, Array
+
+String이라는 타입이 존재
