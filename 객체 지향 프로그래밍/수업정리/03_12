@@ -1,4 +1,16 @@
+C
+
+C는 아스키코드를 사용, Java는 유니코드 사용.
+
+C는 procedure의 집합. function이 모두 global하기 때문에 서로서로 접근을 막을 수 없음.
+
+Object = data(state) + behavior(methods or functions)
+
+--------------------------------------------------
+Java
+
 Java는 C에 비해 프로그램이 덜 죽는다.(C의 경우 이상한 주소를 point하여 접근할려는 경우 프로그램이 꺼짐)
+
 
 Cpu에 상관없이 A컴퓨터로 짠 코드가 B코드에서 잘 돌아감.(Portable)
 
@@ -6,3 +18,16 @@ Cpu에 상관없이 A컴퓨터로 짠 코드가 B코드에서 잘 돌아감.(Por
 
 쓰레드를 여러개 생성하여 컨커런트(동시에)하게 프로그래밍할 수 있음.
 
+포인터, 구조체, typedef 등등 여러기능이 빠짐.
+
+Java는 object의 집합.
+
+Data Abstraction 중요한 데이터(사용자가 알아야할 내용)와 아닌 데이터를 구분하는 것? 
+
+사용자에게 중요하지 않은 내용을 숨기는 것을 Encapsulation이라고 함.(IMO. Public과 Private와 관련이 있는듯?)
+
+S/W가 H/W를 바라보는 관점(view)를 Architecture이라고 함.
+
+Java프로그램을 실행시키면 너무 느려서 Java Compiler를 거쳐 가상 기계어(Bytecode)로 바꾸고 Java Interpreter를 거쳐 결과를 도출해 냄.
+
+대부분 User program ->JVM(Java Virtual Machine) 방향으로 실행되지만 GUI와 같은 Event가 발생시 역방향으로 실행되기도 한다. 이런 방식을 Event driven 방식 도는 call back function이라고도 한다.
