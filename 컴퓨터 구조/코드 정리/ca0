@@ -1,0 +1,195 @@
+음주 코드
+{
+	int result = 0, a = 0, b, len, unit, n1 = 0, n2 = 0;
+	while (tokens[2 * a + 1] != "\0") {
+		if (a == 0) {
+			if (tokens[2 * a + 1][0] == '+') {
+				b = 0;
+				len = 0;
+				while (tokens[a][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					n1 += (tokens[a][d] - 48) * unit;
+				}
+				b = 0;
+				len = 0;
+				while (tokens[a + 2][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				if (tokens[a + 3] == "\0") {
+					len--;
+					b--;
+				}
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					n2 += (tokens[2][d] - 48) * unit;
+				}
+				result = n1 + n2;
+				a++;
+			}
+			else {
+				b = 0;
+				len = 0;
+				while (tokens[a][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					n1 += (tokens[a][d] - 48) * unit;
+				}
+				b = 0;
+				len = 0;
+				while (tokens[a + 2][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				if (tokens[a + 3] == "\0") {
+					len--;
+					b--;
+				}
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					n2 += (tokens[2][d] - 48) * unit;
+				}
+				result = n1 - n2;
+				a++;
+			}
+		}
+		else {
+			n2 = 0;
+			if (tokens[2 * a + 1][0] == '+') {
+				b = 0;
+				len = 0;
+				while (tokens[2 * a + 2][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				if (tokens[2 * a + 3] == "\0") {
+					len--;
+					b--;
+				}
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					n2 += (tokens[2 * a + 2][d] - 48) * unit;
+				}
+				result += n2;
+				a++;
+			}
+			else {
+				n2 = 0;
+				b = 0;
+				len = 0;
+				while (tokens[2 * a + 2][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				if (tokens[2 * a + 3] == "\0") {
+					len--;
+					b--;
+				}
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					n2 += (tokens[2 * a + 2][d] - 48) * unit;
+				}
+				result -= n2;
+				a++;
+			}
+		}
+	}
+	return result;
+}
+멀쩡 코드
+{
+	int result = 0, b, len, unit;
+	for (int i = 0; i < nr_tokens-1; i++) {
+		if (i == 0) {
+			b = 0;
+			len = 0;
+			while (tokens[i][b] != '\0') {
+				b++;
+				len++;
+			}
+			b--;
+			for (int d = 0; d < len; d++) {
+				unit = 1;
+				for (int c = b - d; c > 0; c--) {
+					unit *= 10;
+				}
+				result += (tokens[i][d] - 48) * unit;
+			}
+		}
+		else {
+			switch (tokens[i][0]) {
+			case '+':
+				b = 0;
+				len = 0;
+				while (tokens[i+1][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				if (tokens[i + 2] == "\0") {
+					len--;
+					b--;
+				}
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					result += (tokens[i+1][d] - 48) * unit;
+				}
+				break;
+			case '-':
+				b = 0;
+				len = 0;
+				while (tokens[i + 1][b] != '\0') {
+					b++;
+					len++;
+				}
+				b--;
+				if (tokens[i + 2] == "\0") {
+					len--;
+					b--;
+				}
+				for (int d = 0; d < len; d++) {
+					unit = 1;
+					for (int c = b - d; c > 0; c--) {
+						unit *= 10;
+					}
+					result -= (tokens[i + 1][d] - 48) * unit;
+				}
+			}
+		}
+	}
+	return result;
+}
