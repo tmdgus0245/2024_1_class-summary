@@ -1,1 +1,4 @@
-
+컴퓨터마다 알아들을 수 있는 instruction set이 다름
+Architecture = Instruction set architecture(ISA)
+Architecture가 다르면 서로 못 알아 먹을 가능성이 큼.
+Architecture를 활용하는 방안에 따라 Microarchitecture가 달라질 수 있고 또, Microarchitecture에 따라 Imprementation이 달라질 수 있음.
