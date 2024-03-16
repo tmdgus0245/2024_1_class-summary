@@ -1,0 +1,7 @@
+Unicode 공부
+UTF-8, UTF-16 공부필요
+\\s*,(\\s*)<- regular expression
+
+파일에서 읽어와 파일에 쓰는 방법 standard I/O Redirection
+
+함수 뒤에 throws IOExpression을 쓰면 파일을 못 찾아도 무시할 수 있음. 
