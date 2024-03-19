@@ -129,19 +129,17 @@
 }
 멀쩡 코드
 {
-	int result = 0, b, len, unit;
+	int result = 0, len, unit;
 	for (int i = 0; i < nr_tokens-1; i++) {
 		if (i == 0) {
-			b = 0;
 			len = 0;
-			while (tokens[i][b] != '\0') {
-				b++;
+			while (tokens[i][len] != '\0') {
 				len++;
 			}
-			b--;
-			for (int d = 0; d < len; d++) {
+			len--;
+			for (int d = 0; d <= len; d++) {
 				unit = 1;
-				for (int c = b - d; c > 0; c--) {
+				for (int c = len - d; c > 0; c--) {
 					unit *= 10;
 				}
 				result += (tokens[i][d] - 48) * unit;
@@ -150,40 +148,34 @@
 		else {
 			switch (tokens[i][0]) {
 			case '+':
-				b = 0;
 				len = 0;
-				while (tokens[i+1][b] != '\0') {
-					b++;
+				while (tokens[i+1][len] != '\0') {
 					len++;
 				}
-				b--;
+				len--;
 				if (tokens[i + 2] == "\0") {
 					len--;
-					b--;
 				}
-				for (int d = 0; d < len; d++) {
+				for (int d = 0; d <= len; d++) {
 					unit = 1;
-					for (int c = b - d; c > 0; c--) {
+					for (int c = len - d; c > 0; c--) {
 						unit *= 10;
 					}
 					result += (tokens[i+1][d] - 48) * unit;
 				}
 				break;
 			case '-':
-				b = 0;
 				len = 0;
-				while (tokens[i + 1][b] != '\0') {
-					b++;
+				while (tokens[i + 1][len] != '\0') {
 					len++;
 				}
-				b--;
+				len--;
 				if (tokens[i + 2] == "\0") {
 					len--;
-					b--;
 				}
-				for (int d = 0; d < len; d++) {
+				for (int d = 0; d <= len; d++) {
 					unit = 1;
-					for (int c = b - d; c > 0; c--) {
+					for (int c = len - d; c > 0; c--) {
 						unit *= 10;
 					}
 					result -= (tokens[i + 1][d] - 48) * unit;
